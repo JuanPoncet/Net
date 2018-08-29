@@ -8,6 +8,8 @@ void setup () {
   dots = new PVector[nDots]; 
   for (int i = 0; i < nDots; i++) {
     dots[i] = new PVector(random(0, width), random(0, height));
+    
+    noStroke();
   }
 }
 
@@ -20,7 +22,7 @@ void draw () {
 
 void updateDots() {
   for (int i = 0; i < nDots; i++) {
-    PVector offset = new PVector(random(-3, 3), random(-3, 3));
+    PVector offset = new PVector(random(-4, 4), random(-4, 4));
     dots[i].add(offset);
     
     if (dots[i].x < 0) { dots[i].x = width; }
@@ -32,6 +34,10 @@ void updateDots() {
 
 void renderDots() {
   for (int i = 0; i < nDots; i++) {
+    fill(0);
     ellipse(dots[i].x, dots[i].y, 6, 6);
+    
+    fill(0,255,0,60);
+    ellipse(dots[i].x, dots[i].y, 60, 60);
   }
 }
